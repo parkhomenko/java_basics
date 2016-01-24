@@ -34,7 +34,23 @@ public class CustomTree {
     }
 
     public Node findNode(int key) {
-        return null;
+        if (root == null) {
+            return null;
+        }
+
+        Node currentNode = root;
+        while (currentNode.key != key) {
+            if (key < currentNode.key)
+                currentNode = currentNode.leftChild;
+            else
+                currentNode = currentNode.rightChild;
+
+            if (currentNode == null) {
+                return null;
+            }
+        }
+
+        return currentNode;
     }
 
     public void traverse(Node currentNode) {
